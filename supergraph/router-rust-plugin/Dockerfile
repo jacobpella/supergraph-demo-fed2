@@ -19,6 +19,9 @@ RUN rm src/*.rs
 # copy your source tree
 COPY ./src ./src
 
+# add protoful dep
+RUN apt-get update && apt-get install -y protobuf-compiler
+
 # build for release
 RUN rm ./target/release/deps/acme_router*
 RUN cargo build --release
